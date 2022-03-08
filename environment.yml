@@ -1,0 +1,19 @@
+name: unbias
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - pytorch=1.7.1
+  - cudatoolkit=11.0.*
+  - pandas
+  - ipython
+  - pip
+  - pip:
+    - transformers
+    - pytorch-lightning==1.2.*
+    - click
+    - comet_ml
+    - gdown
+    - scikit-learn
+    - tensorflow
+    - seaborn
