@@ -46,18 +46,19 @@ and install all required dependencies in it:
 EAR can be plugged very easily to HuggingFace models.
 
 ```python
-from transformers import AutoModel
+from transformers import AutoTokenizer, AutoModel
 import ear
 
 tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
 model = AutoModel.from_pretrained("bert-base-uncased")
 
-item = tokenizer("Today it's a good day!", padding="max_length", max_length=32, trucation=True)
-out = model(**item, output_attentions=True)
+item = tokenizer("Today it's a good day!")
+outputs = model(**item, output_attentions=True)
 
 reg_strength = 0.01
 neg_entropy = ear.compute_negative_entropy(
-    output.attentions, batch["attention_mask"]
+    inputs=outputs.attentions,
+    attention_mask=item["attention_mask"]
 )
 reg_loss = reg_strength * neg_entropy
 loss = reg_loss + output.loss
