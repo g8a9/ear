@@ -1,4 +1,6 @@
 import torch
+from transformers import AutoModelForSequenceClassification, AutoConfig
+from collections import namedtuple
 
 
 def compute_negative_entropy(
@@ -42,3 +44,38 @@ def compute_negative_entropy(
         return final_entropy, neg_entropies
     else:
         return final_entropy
+
+
+EARClassificationOutput = namedtuple(
+    "EARClassificationOutput",
+    ["model_output", "negative_entropy", "reg_loss", "loss"]
+)
+
+
+
+class EARModelForSequenceClassification(torch.nn.Module):
+
+    def __init__(self, model_name_or_path, ear_reg_strength: float = 0.01, model_kwargs={}):
+        super().__init__()
+
+        self.model = AutoModelForSequenceClassification.from_pretrained(model_name_or_path, **model_kwargs)
+        self.ear_reg_strength = ear_reg_strength
+
+    def forward(self, **model_kwargs):
+        output = self.model(**model_kwargs, output_attentions=True)
+
+        negative_entropy = compute_negative_entropy(
+            output.attentions, model_kwargs["attention_mask"]
+        )
+        reg_loss = self.ear_reg_strength * negative_entropy
+        loss = reg_loss + output.loss
+
+        return EARClassificationOutput(
+            model_output=output,
+            negative_entropy=negative_entropy,
+            reg_loss=reg_loss,
+            loss=loss
+        ) 
+
+    def save_pretrained(self, *args, **kwargs):
+        self.model.save_pretrained(*args, **kwargs)
