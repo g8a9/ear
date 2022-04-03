@@ -11,7 +11,7 @@ DEPENDENCIES = ["transformers"]
 
 # This call to setup() does all the work
 setup(
-    name="ear",
+    name="ear-transformers",
     version="1.0.0",
     description="Entrop-based Attention Regularizationn",
     long_description=README,
