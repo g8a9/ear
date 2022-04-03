@@ -2,6 +2,10 @@
 
 EAR is a regularization technique to mitigate uninteded bias while reducing lexical overfitting. It is based on attention entropy maximization. In practice, EAR adds a regularization term at training time to learn tokens with maximal self-attention entropy.
 
+See the papers for additional details:
+
+Attanasio, G., Nozza, D., Hovy, D., & Baralis, E. "[Entropy-based Attention Regularization Frees Unintended Bias Mitigation from Lists](https://milanlproc.github.io/publication/2022-entropy-attention-regularization-bias/)". In Findings of the Association for Computational Linguistics: ACL2022 (Forthcoming). Association for Computational Linguistics, 2022.
+
 ## Project structure
 
 The data used in this study is in `data`. Please note that we are not allowed to distribute all the data sets. For some of those, you will need to download it yourselves (instructions below).
@@ -93,7 +97,7 @@ e.g., `./bash/train_model_EAR_10_seeds.sh bert-base-uncased . mlma`
 
 Note that:
 - if you want to take into account class imbalance, you should add the `--balanced_loss` to the parameters passed as command line arguments to python;
-- for BERT+SOC (Kennedy et al. 2020), we re-use the authors's implementation. Therefore, no
+- for [BERT+SOC](https://github.com/BrendanKennedy/contextualizing-hate-speech-models-with-explanations) (Kennedy et al. 2020), we re-use the authors's implementation. Therefore, no
 training scripts are provided here.
 
 ## Testing
@@ -129,6 +133,23 @@ We provide a Jupyter Notebook where we show how to extract terms with the lowest
 may induce most of the bias in the model.
 
 After having trained at least one model (i.e., you have a model checkpoint), the notebook [`term_extraction.ipynb`](term_extraction.ipynb) will guide you through the discovery of biased terms.
+
+## References
+
+Please use the following bibtex entry if you use this model in your project:
+ 
+```
+@inproceedings{attanasio-2022-entropy,
+    title = "Entropy-based Attention Regularization Frees Unintended Bias Mitigation from Lists",
+    author = "Attanasio, Giuseppe  and
+      Nozza, Debora  and
+      Hovy, Dirk and
+      Baralis, Elena",
+    booktitle = "Findings of the Association for Computational Linguistics: ACL2022 (Forthcoming)",
+    year = "2022",
+    publisher = "Association for Computational Linguistics"
+}
+```
 
 ### 🚨 Ethical considerations
 
