@@ -1,5 +1,5 @@
 import torch
-from transformers import AutoModelForSequenceClassification, AutoConfig
+from transformers import AutoModelForSequenceClassification
 from collections import namedtuple
 
 
