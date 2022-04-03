@@ -13,7 +13,7 @@ DEPENDENCIES = ["transformers"]
 setup(
     name="ear-transformers",
     version="1.0.0",
-    description="Entrop-based Attention Regularizationn",
+    description="Entrop-based Attention Regularization",
     long_description=README,
     long_description_content_type="text/markdown",
     url="https://github.com/g8a9/ear",
