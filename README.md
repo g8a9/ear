@@ -4,7 +4,11 @@ EAR is a regularization technique to mitigate uninteded bias while reducing lexi
 
 See the papers for additional details:
 
-Attanasio, G., Nozza, D., Hovy, D., & Baralis, E. "[Entropy-based Attention Regularization Frees Unintended Bias Mitigation from Lists](https://milanlproc.github.io/publication/2022-entropy-attention-regularization-bias/)". In Findings of the Association for Computational Linguistics: ACL2022 (Forthcoming). Association for Computational Linguistics, 2022.
+*Attanasio, G., Nozza, D., Hovy, D., & Baralis, E. "Entropy-based Attention Regularization Frees Unintended Bias Mitigation from Lists". In Findings of the Association for Computational Linguistics: ACL2022. Association for Computational Linguistics, 2022.*
+
+### Quick links
+
+- Preprint: https://arxiv.org/abs/2203.09192
 
 ## Project structure
 
