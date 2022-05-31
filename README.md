@@ -1,13 +1,15 @@
-# Entropy-based Attention Regularization Frees Unintended Bias Mitigation from Lists
+# Entropy-based Attention Regularization 👂
 
 EAR is a regularization technique to mitigate uninteded bias while reducing lexical overfitting. It is based on attention entropy maximization. In practice, EAR adds a regularization term at training time to learn tokens with maximal self-attention entropy.
 
-See the papers for additional details:
+See the paper for additional details:
 
 *Attanasio, G., Nozza, D., Hovy, D., & Baralis, E. "Entropy-based Attention Regularization Frees Unintended Bias Mitigation from Lists". In Findings of the Association for Computational Linguistics: ACL2022. Association for Computational Linguistics, 2022.*
 
 ### Quick links
 
+- ACL Anthology bibkey: `attanasio-etal-2022-entropy`
+- ACL Anthology: https://aclanthology.org/2022.findings-acl.88/
 - Preprint: https://arxiv.org/abs/2203.09192
 
 ## Project structure
@@ -142,17 +144,23 @@ After having trained at least one model (i.e., you have a model checkpoint), the
 
 Please use the following bibtex entry if you use this model in your project:
  
-```
-@inproceedings{attanasio-2022-entropy,
+```bib
+@inproceedings{attanasio-etal-2022-entropy,
     title = "Entropy-based Attention Regularization Frees Unintended Bias Mitigation from Lists",
     author = "Attanasio, Giuseppe  and
       Nozza, Debora  and
-      Hovy, Dirk and
+      Hovy, Dirk  and
       Baralis, Elena",
-    booktitle = "Findings of the Association for Computational Linguistics: ACL2022 (Forthcoming)",
+    booktitle = "Findings of the Association for Computational Linguistics: ACL 2022",
+    month = may,
     year = "2022",
-    publisher = "Association for Computational Linguistics"
+    address = "Dublin, Ireland",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.findings-acl.88",
+    pages = "1105--1119",
+    abstract = "Natural Language Processing (NLP) models risk overfitting to specific terms in the training data, thereby reducing their performance, fairness, and generalizability. E.g., neural hate speech detection models are strongly influenced by identity terms like gay, or women, resulting in false positives, severe unintended bias, and lower performance.Most mitigation techniques use lists of identity terms or samples from the target domain during training. However, this approach requires a-priori knowledge and introduces further bias if important terms are neglected.Instead, we propose a knowledge-free Entropy-based Attention Regularization (EAR) to discourage overfitting to training-specific terms. An additional objective function penalizes tokens with low self-attention entropy.We fine-tune BERT via EAR: the resulting model matches or exceeds state-of-the-art performance for hate speech classification and bias metrics on three benchmark corpora in English and Italian.EAR also reveals overfitting terms, i.e., terms most likely to induce bias, to help identify their effect on the model, task, and predictions.",
 }
+
 ```
 
 ### 🚨 Ethical considerations
